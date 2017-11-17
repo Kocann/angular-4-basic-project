@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  activeElement = 'recipes';
+
+  changeActivePanel(activatePanel: {activePanel: string}) {
+    this.activeElement = activatePanel.activePanel;
+  }
 }

@@ -1,8 +1,9 @@
-<app-header></app-header>
+<app-header (activatePanel)="changeActivePanel($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <app-recipes></app-recipes>
+      <app-recipes *ngIf="activeElement === 'recipes'"></app-recipes>
+      <app-shopping-list *ngIf="activeElement === 'shoppingList'"></app-shopping-list>
     </div>
   </div>
 </div>

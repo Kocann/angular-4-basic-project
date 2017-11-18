@@ -2,14 +2,27 @@
   <div class="col-12">
     <div class="form-group">
       <label for="name">Name</label>
-      <input id="name" type="text" name="" class="form-control" placeholder="enter name" aria-describedby="helpId">
+      <input id="name" 
+             type="text" 
+             name="" 
+             class="form-control" 
+             placeholder="enter name" 
+             aria-describedby="helpId"
+             #ingredientName>
     </div>
     <div class="form-group">
       <label for="amount">Amount</label>
-      <input id="amount" type=" number" name="" class="form-control" aria-describedby="helpId">
+      <input id="amount" 
+             type=" number" 
+             name="" 
+             class="form-control" 
+             aria-describedby="helpId"
+             #ingredientAmount>
     </div>
     <div class="row">
-      <button class="mx-1 btn btn-success" type="submit">Add</button>
+      <button class="mx-1 btn btn-success" 
+              type="submit"
+              (click)="ingredientAdded()">Add</button>
       <button class="mx-1 btn btn-danger" type="reset">Delete</button>
       <button class="mx-1 btn btn-primary">Clear</button>
       

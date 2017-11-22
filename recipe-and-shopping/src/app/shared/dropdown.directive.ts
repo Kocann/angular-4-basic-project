@@ -10,6 +10,8 @@ import {
   selector: '[appDropdown]'
 })
 
+// works!! but deleted from html becuase bootstrap works! :)
+
 export class DropdownDirective {
   @HostBinding('class.show') show: boolean = true;
 

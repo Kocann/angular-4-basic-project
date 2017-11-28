@@ -20,7 +20,7 @@
         Manage recipe
       </button>
       <div class="dropdown-menu" aria-labelledby="triggerId">
-        <button class="dropdown-item" href="#">Add ingedients to shoppinglist</button>
+        <button class="dropdown-item" (click)="addToShoppingList()" href="#">Add ingedients to shoppinglist</button>
         <button class="dropdown-item" href="#">Edit recipe</button>
         <button class="dropdown-item" href="#">Delete recipe</button>
       </div>
@@ -34,6 +34,9 @@
 </div>
 <div class="row">
   <div class="col-12">
-    Ingredients
+    Ingredients:
+    <div *ngFor="let igredient of recipe.ingredients">
+      <span>{{igredient.name}}</span> - <span> {{igredient.amount}}</span>
+    </div>
   </div>
 </div>

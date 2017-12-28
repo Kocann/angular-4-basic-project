@@ -3,8 +3,7 @@ import { EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
-
+  //recipeSelected = new EventEmitter<Recipe>();
   private recipes: Recipe[] = [
     new Recipe('A test recipe',
     'this is simply a test', 
@@ -21,8 +20,18 @@ export class RecipeService {
       new Ingredient('Bread', 1)
     ])
   ];
+  chosenRecipe = this.recipes[0];
 
   getRecipes() {
     return this.recipes.slice(); //return the exact same copy of array
+  }
+
+  selectRecipe(id) {
+    this.chosenRecipe = this.recipes[id];
+    console.log(this.recipes[id])
+  }
+
+  getRecipe() {
+    return this.chosenRecipe;
   }
 }

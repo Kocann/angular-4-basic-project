@@ -4,24 +4,27 @@
     </button>
     <a class="navbar-brand px-2" href="#">Recipe Book</a>
     <ul class="navbar-nav d-inline-block mr-auto">
-        <li class="nav-item d-inline-block px-1 active">
-          <a (click)="activateRecipes()" 
-              class="nav-link" 
-              href="#">Recipes</a>
+        <li class="nav-item d-inline-block px-1 " routerLinkActive="active">
+          <a 
+          [routerLink]='["/recipes"]'
+          (click)="activateRecipes()" 
+          class="nav-link" 
+        >Recipes</a>
         </li>
         <li class="nav-item d-inline-block px-1">
           <a (click)="activateShoppingList()" 
               class="nav-link" 
-              href="#">Shopping list</a>
+            
+              [routerLink]='["/shopping-list"]'>Shopping list</a>
         </li>
       </ul>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Save data</a>
+        <li class="nav-item " routerLinkActive="active">
+          <a class="nav-link">Save data</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Fetch data</a>
+          <a class="nav-link">Fetch data</a>
         </li>
       </ul>
     </div>

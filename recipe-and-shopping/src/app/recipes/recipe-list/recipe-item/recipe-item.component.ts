@@ -21,6 +21,8 @@ export class RecipeItemComponent implements OnInit {
   }
 
   onSelected() {
+    //code moved to recipe-detail
+
     //this.recipeService.recipeSelected.emit(this.recipe);
     // const id = this.route.snapshot.params['ind'];
     // console.log(id)

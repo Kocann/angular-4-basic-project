@@ -28,7 +28,6 @@ export class RecipeService {
 
   selectRecipe(id) {
     this.chosenRecipe = this.recipes[id];
-    console.log(this.recipes[id])
   }
 
   getRecipe() {

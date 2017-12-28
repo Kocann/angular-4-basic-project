@@ -37,4 +37,8 @@ export class RecipeDetailComponent implements OnInit {
       this.shopListSer.addIngredient(x);
     })
   }
+
+  editRecipe(){
+    this.router.navigate(['edit'], {relativeTo: this.route});
+  }
 }

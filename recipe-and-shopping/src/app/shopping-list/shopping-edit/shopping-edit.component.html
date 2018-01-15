@@ -1,31 +1,30 @@
 <div class="row">
-  <div class="col-12">
+  <form (ngSubmit)="onAddItem(f)" #f="ngForm" class="col-12">
     <div class="form-group">
       <label for="name">Name</label>
       <input id="name" 
              type="text" 
-             name="" 
+             name="name" 
              class="form-control" 
              placeholder="enter name" 
              aria-describedby="helpId"
-             #ingredientName>
+             ngModel>
     </div>
     <div class="form-group">
       <label for="amount">Amount</label>
       <input id="amount" 
-             type=" number" 
-             name="" 
+             type="number" 
+             name="amount" 
              class="form-control" 
              aria-describedby="helpId"
-             #ingredientAmount>
+             ngModel>
     </div>
     <div class="row">
       <button class="mx-1 btn btn-success" 
-              type="submit"
-              (click)="ingredientAdded()">Add</button>
+              type="submit">Add</button>
       <button class="mx-1 btn btn-danger" type="reset">Delete</button>
-      <button class="mx-1 btn btn-primary">Clear</button>
+      <button class="mx-1 btn btn-primary" type="button">Clear</button>
       
     </div>
-  </div>
+  </form>
 </div>

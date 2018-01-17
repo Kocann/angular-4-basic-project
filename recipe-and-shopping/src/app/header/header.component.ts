@@ -1,4 +1,7 @@
 import {Component, Output, EventEmitter} from '@angular/core';
+import { RecipeService } from '../recipes/recipe.service';
+import { Response } from '@angular/http';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +10,8 @@ import {Component, Output, EventEmitter} from '@angular/core';
 
 export class HeaderComponent {
   @Output() activatePanel = new  EventEmitter<{activePanel: string}>();
+
+  constructor(private dataStorServ: DataStorageService){}
 
   activateRecipes() {
     this.activatePanel.emit({
@@ -20,4 +25,17 @@ export class HeaderComponent {
       activePanel: "shoppingList"
     })
   }
+
+  saveRecipes() {
+    this.dataStorServ.storeData().subscribe(
+      (response: Response) => {
+        console.log(response)
+      }
+    );
+  }
+
+  fetchRecipes() {
+    this.dataStorServ.fetchData();
+  }
+
 }

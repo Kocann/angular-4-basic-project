@@ -2,7 +2,12 @@ import {Recipe} from './recipe.model';
 // import { EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from 'rxjs/Subject';
+import { Http, Response } from '@angular/http';
+import { Injectable } from '@angular/core';
+import 'rxjs/Rx';
 
+
+@Injectable()
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
   //recipeSelected = new EventEmitter<Recipe>();
@@ -23,6 +28,8 @@ export class RecipeService {
     ])
   ];
   chosenRecipe = this.recipes[0];
+
+  constructor(private http: Http){}
 
   getRecipes() {
     return this.recipes.slice(); //return the exact same copy of array
@@ -48,6 +55,25 @@ export class RecipeService {
 
   deleteRecipe(index:number) {
     this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  // saveRecipes(data) {
+  //   return this.http.put('https://trololo-93310.firebaseio.com/data.json', data, {})
+  // }
+
+  // fetchRecipes() {
+  //   return this.http.get('https://trololo-93310.firebaseio.com/data.json')
+  //   .map(
+  //     (response: Response) => {
+  //       const data = response.json();
+  //       return data;
+  //     }
+  //   )
+  // }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
     this.recipesChanged.next(this.recipes.slice());
   }
 }

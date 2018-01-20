@@ -2,18 +2,24 @@ import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import { RecipeService } from "../recipes/recipe.service";
 import { Recipe } from "../recipes/recipe.model";
+import { AuthService } from "../auth/auth.service";
 
 
 @Injectable()
 export class DataStorageService {
-  constructor(private http: Http, private recipeServ: RecipeService){}
+  constructor(private http: Http, 
+              private recipeServ: RecipeService,
+              private authService: AuthService){}
 
   storeData() {
-    return this.http.put('https://trololo-93310.firebaseio.com/recipes.json', this.recipeServ.getRecipes());
+    const tk = this.authService.getToken();
+    return this.http.put('https://trololo-93310.firebaseio.com/recipes.json' + tk, this.recipeServ.getRecipes());
   }
 
   fetchData() {
-    return this.http.get('https://trololo-93310.firebaseio.com/recipes.json')
+    const tk = this.authService.getToken();
+
+    return this.http.get('https://trololo-93310.firebaseio.com/recipes.json?auth=' + tk)
     .map(
       (response: Response) => {
         const recipes: Recipe[] = response.json();

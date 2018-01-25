@@ -15,23 +15,25 @@ import { RecipeService } from './recipes/recipe.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
-import { RecipesModule } from './recipes/recipe.module';
+// import { RecipesModule } from './recipes/recipe.module';// changed to lazy loading
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    RecipesModule,
+    //RecipesModule, //changed to lazy loading
     SharedModule,
     ShoppingListModule,
     AuthModule

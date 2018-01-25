@@ -1,8 +1,8 @@
 import {Component, Output, EventEmitter} from '@angular/core';
-import { RecipeService } from '../recipes/recipe.service';
+import { RecipeService } from '../../recipes/recipe.service';
 import { Response } from '@angular/http';
-import { DataStorageService } from '../shared/data-storage.service';
-import { AuthService } from '../auth/auth.service';
+import { DataStorageService } from '../../shared/data-storage.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +20,6 @@ export class HeaderComponent {
     this.activatePanel.emit({
       activePanel: "recipes"
     })
-    
   }
 
   activateShoppingList() {
